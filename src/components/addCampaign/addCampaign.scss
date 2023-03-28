@@ -1,0 +1,20 @@
+.addCampaign {
+    .login__box {
+        max-height: 750px;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #0496ff;
+            border-radius: 20px;
+        }
+    }
+}

@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "DINOT-Regular";
+  src: url("//db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.eot");
+  src: url("//db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/1c587cd97662ab09cb8ba96867f212e7.svg#DINOT-Regular") format("svg");
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+
+body {
+  background: #0496ff;
+  font-family: "DINOT-Regular";
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  /* justify-content: space-around; */
+}
+
+main {
+  width: 100%;
+  // margin-left: 220px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(138, 138, 138, 0.8);
+}
+
+.modal__item {
+  position: fixed;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  max-height: 80%;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  overflow: auto;
+}
+
+.modal--close {
+  display: none !important;
+}
+
+.add__btn-box {
+  position: fixed;
+  top: 90%;
+  right: 5%;
+}
+
+.edit__btn {
+  display: block;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  background-color: rgb(236, 175, 6);
+  border-radius: 8px;
+  border: none;
+}

@@ -1,0 +1,67 @@
+.advertisements {
+    table {
+        width: calc(1400px + 200px);
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+    }
+
+    th,
+    td {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        width: 180px;
+        text-align: center;
+    }
+
+    tr {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0px;
+    }
+
+    thead {
+        background-color: #01384d;
+        color: #fff;
+    }
+
+    tbody {
+        tr {
+            display: flex;
+            border: 1px solid #01384d;
+            border-top: none;
+        }
+        td {
+            height: 59px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            button {
+                border: none;
+                background: none;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.more__btn {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(99, 94, 94, 0.8);
+}
