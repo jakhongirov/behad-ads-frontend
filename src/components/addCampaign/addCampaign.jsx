@@ -1,9 +1,11 @@
 import './addCampaign.scss'
 import useToken from '../../Hooks/useToken';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function AddCampaign() {
     const [token, setToken] = useToken();
+    const navigate = useNavigate()
 
     const HandleAddCampaign = (e) => {
         e.preventDefault();
@@ -65,7 +67,11 @@ function AddCampaign() {
                 'Accept': 'application/json'
             },
         }).then(data => {
-            console.log(data);
+            if (data.status === 200) {
+                navigate('/advertiser/advertisement')
+            } else {
+                console.log(data);
+            }
         }).catch(e => console.log(e))
 
     }

@@ -2,6 +2,7 @@ import './addApp.scss'
 import { useState } from "react";
 import useToken from '../../Hooks/useToken';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function AddApp() {
     const [token] = useToken();
@@ -9,6 +10,7 @@ function AddApp() {
     const [inters, setIN] = useState('')
     const [rewarded, setRD] = useState('')
     const [native_banner, setNB] = useState('')
+    const navigate = useNavigate()
 
     const makeCode = (length, type) => {
         let characters = '0123456789';
@@ -59,7 +61,13 @@ function AddApp() {
                 "Access-Control-Allow-Origin": "*"
 
             }
-        }).then(data => console.log(data)).catch(e => console.log(e))
+        }).then(data => {
+            if(data.status === 200) {
+                navigate('/developer/apps')
+            } else {
+                console.log(data);
+            }
+        }).catch(e => console.log(e))
     }
 
     return (
