@@ -13,7 +13,7 @@ function Login() {
         e.preventDefault();
         const { phone, password } = e.target.elements
 
-        fetch('https://ads.behad.uz/api/v1/login', {
+        fetch('https://ads.adstar.uz/api/v1/login', {
             method: "POST",
             headers: {
                 "Accep": "application/json",

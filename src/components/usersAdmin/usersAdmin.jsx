@@ -11,7 +11,7 @@ function UsersAdmin() {
     const [refresh, setRefresh] = useState(0)
 
     useEffect(() => {
-        fetch('https://ads.behad.uz/api/v1/users?offset=' + offset + '&sort=user_id desc', {
+        fetch('https://ads.adstar.uz/api/v1/users?offset=' + offset + '&sort=user_id desc', {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -31,7 +31,7 @@ function UsersAdmin() {
     const HandleUser = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/users?id=' + id, {
+        fetch('https://ads.adstar.uz/api/v1/users?id=' + id, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -53,7 +53,7 @@ function UsersAdmin() {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/deleteUser', {
+        fetch('https://ads.adstar.uz/api/v1/deleteUser', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

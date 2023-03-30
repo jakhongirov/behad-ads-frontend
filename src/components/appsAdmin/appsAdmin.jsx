@@ -13,7 +13,7 @@ function AppsAdmin() {
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {
-        fetch('https://ads.behad.uz/api/v1/apps?offset=' + offset, {
+        fetch('https://ads.adstar.uz/api/v1/apps?offset=' + offset, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -31,7 +31,7 @@ function AppsAdmin() {
     }, [token, refresh, offset])
 
     useEffect(() => {
-        fetch('https://ads.behad.uz/api/v1/categories', {
+        fetch('https://ads.adstar.uz/api/v1/categories', {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -51,7 +51,7 @@ function AppsAdmin() {
     const HandleApp = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/apps?appId=' + id, {
+        fetch('https://ads.adstar.uz/api/v1/apps?appId=' + id, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -73,7 +73,7 @@ function AppsAdmin() {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/deleteApp', {
+        fetch('https://ads.adstar.uz/api/v1/deleteApp', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -98,7 +98,7 @@ function AppsAdmin() {
         e.preventDefault();
         const { category, status } = e.target.elements
 
-        fetch('https://ads.behad.uz/api/v1/editAppStatus', {
+        fetch('https://ads.adstar.uz/api/v1/editAppStatus', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

@@ -53,7 +53,7 @@ function AddApp() {
         formData.append('native_banner_id', native_banner)
         formData.append('userId', token.user_id)
 
-        axios.post('https://ads.behad.uz/api/v1/addApp', formData, {
+        axios.post('https://ads.adstar.uz/api/v1/addApp', formData, {
             headers: {
                 'Content-Type': 'form-data',
                 "type": "formData",

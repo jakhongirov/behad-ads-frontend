@@ -60,7 +60,7 @@ function AddCampaign() {
         formData.append("advertising_id", token ? token.user_id : setToken(false));
 
 
-        axios.post('https://ads.behad.uz/api/v1/addAdvertisement', formData, {
+        axios.post('https://ads.adstar.uz/api/v1/addAdvertisement', formData, {
             headers: {
                 'Content-Type': 'form-data',
                 "type": "formData",

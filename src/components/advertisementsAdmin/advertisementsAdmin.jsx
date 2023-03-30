@@ -10,7 +10,7 @@ function AdvertisementsAdmin() {
     const [ad, setAd] = useState({})
 
     useEffect(() => {
-        fetch('https://ads.behad.uz/api/v1/advertisements?offset=' + offset, {
+        fetch('https://ads.adstar.uz/api/v1/advertisements?offset=' + offset, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -30,7 +30,7 @@ function AdvertisementsAdmin() {
     const HandleAd = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/advertisements?campaign_id=' + id, {
+        fetch('https://ads.adstar.uz/api/v1/advertisements?campaign_id=' + id, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -51,7 +51,7 @@ function AdvertisementsAdmin() {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/deleteAdvertisement', {
+        fetch('https://ads.adstar.uz/api/v1/deleteAdvertisement', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -76,7 +76,7 @@ function AdvertisementsAdmin() {
         const id = JSON.parse(e.target.dataset.id);
         const status = JSON.parse(e.target.dataset.checked);
 
-        fetch("https://ads.behad.uz/api/v1/editAdStatus", {
+        fetch("https://ads.adstar.uz/api/v1/editAdStatus", {
             method: "PUT",
             body: JSON.stringify({
                 campaign_id: id,

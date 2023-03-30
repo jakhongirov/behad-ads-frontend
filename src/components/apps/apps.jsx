@@ -11,7 +11,7 @@ function Apps() {
     const [refresh, setRefresh] = useState(0)
 
     useEffect(() => {
-        fetch('https://ads.behad.uz/api/v1/apps?offset=' + offset + '&userId=' + token.user_id, {
+        fetch('https://ads.adstar.uz/api/v1/apps?offset=' + offset + '&userId=' + token.user_id, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -31,7 +31,7 @@ function Apps() {
     const HandleApp = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/apps?appId=' + id, {
+        fetch('https://ads.adstar.uz/api/v1/apps?appId=' + id, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -53,7 +53,7 @@ function Apps() {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/deleteApp', {
+        fetch('https://ads.adstar.uz/api/v1/deleteApp', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

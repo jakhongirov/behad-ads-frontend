@@ -13,7 +13,7 @@ function Register({ role }) {
         e.preventDefault();
         const { first_name, last_name, email, phone, password } = e.target.elements
 
-        fetch('https://ads.behad.uz/api/v1/register', {
+        fetch('https://ads.adstar.uz/api/v1/register', {
             method: "POST",
             headers: {
                 "Accep": "application/json",

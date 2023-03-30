@@ -11,7 +11,7 @@ function CategoriesAdmin() {
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {
-        fetch('https://ads.behad.uz/api/v1/categories', {
+        fetch('https://ads.adstar.uz/api/v1/categories', {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -31,7 +31,7 @@ function CategoriesAdmin() {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch('https://ads.behad.uz/api/v1/deleteCategory', {
+        fetch('https://ads.adstar.uz/api/v1/deleteCategory', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -56,7 +56,7 @@ function CategoriesAdmin() {
         e.preventDefault();
         const { category_name } = e.target.elements
 
-        fetch('https://ads.behad.uz/api/v1/addCategory', {
+        fetch('https://ads.adstar.uz/api/v1/addCategory', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -83,7 +83,7 @@ function CategoriesAdmin() {
         e.preventDefault();
         const { category_name } = e.target.elements
 
-        fetch('https://ads.behad.uz/api/v1/editCategory', {
+        fetch('https://ads.adstar.uz/api/v1/editCategory', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
