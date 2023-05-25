@@ -12,7 +12,7 @@ function HomeAdmin() {
                 <section className="homedev">
                     <div className="container">
                         <h1 className="home__heading">
-                            Welcome {token.user_first_name} {token.user_last_name} admin
+                            Welcome {token.user_full_name} admin
                         </h1>
 
                         <div className='home__btn-box'>

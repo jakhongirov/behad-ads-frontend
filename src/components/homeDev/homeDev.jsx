@@ -12,7 +12,7 @@ function HomeDev() {
                 <section className="homedev">
                     <div className="container">
                         <h1 className="home__heading">
-                            Welcome {token.user_first_name} {token.user_last_name} developer
+                            Welcome {token.user_full_name} developer
                         </h1>
 
                         <div className='home__btn-box'>
@@ -20,7 +20,7 @@ function HomeDev() {
                                 className='home__login__btn'
                                 onClick={() => navigate('/developer/addApp')}
                             >
-                               Add your app
+                                Add your app
                             </button>
 
                             <button

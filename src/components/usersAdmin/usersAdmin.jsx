@@ -85,8 +85,7 @@ function UsersAdmin() {
                             <thead>
                                 <tr>
                                     <th>id</th>
-                                    <th>First name</th>
-                                    <th>Last name</th>
+                                    <th>Full name</th>
                                     <th>Phone</th>
                                     <th>Role</th>
                                     <th>More</th>
@@ -99,8 +98,7 @@ function UsersAdmin() {
                                     data.map((e, i) => (
                                         <tr key={i}>
                                             <td>{e.user_id}</td>
-                                            <td>{e.user_first_name}</td>
-                                            <td>{e.user_last_name}</td>
+                                            <td>{e.user_full_name}</td>
                                             <td>{e.user_phone}</td>
                                             <td>{e.user_role}</td>
                                             <td>
@@ -129,14 +127,14 @@ function UsersAdmin() {
 
                         <div className={show ? "modal" : "modal--close"}>
                             <div className="modal__item">
-                                <h3>{user.user_id} {user.user_first_name} {user.user_last_name}</h3>
+                                <h3>{user.user_id} {user.user_full_name}</h3>
                                 <br />
                                 <p>
                                     tel: <a href={`tel:${user.user_phone}`}>{user.user_phone}</a>
                                 </p>
                                 <br />
                                 <p>
-                                    email: {user.user_email}
+                                    Company name: {user.user_company_name}
                                 </p>
                                 <br />
                                 <p>

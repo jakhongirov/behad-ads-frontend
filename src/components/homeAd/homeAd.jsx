@@ -11,7 +11,7 @@ function HomeAd() {
                 <section className="homedev">
                     <div className="container">
                         <h1 className="home__heading">
-                            Welcome {token.user_first_name} {token.user_last_name} advertiser
+                            Welcome {token.user_full_name} advertiser
                         </h1>
 
                         <div className='home__btn-box'>

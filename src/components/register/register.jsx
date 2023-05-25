@@ -7,11 +7,11 @@ function Register({ role }) {
     const [, setToken] = useToken();
     const [err, setErr] = useState(false)
     const [err1, setErr1] = useState(false)
-    const navigate = useNavigate()  
+    const navigate = useNavigate()
 
     const HandleRegister = (e) => {
         e.preventDefault();
-        const { first_name, last_name, email, phone, password } = e.target.elements
+        const { full_name, company_name, phone, password } = e.target.elements
 
         fetch('https://ads.adstar.uz/api/v1/register', {
             method: "POST",
@@ -21,12 +21,11 @@ function Register({ role }) {
                 "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify({
-                first_name: first_name.value.trim(),
-                last_name: last_name.value.trim(),
-                email: email.value.trim(),
+                full_name: full_name.value.trim(),
+                company_name: company_name.value.trim(),
                 phone: phone.value.trim(),
                 password: password.value.trim(),
-                role: 'admin'
+                role: role
             })
         })
             .then(res => res.json())
@@ -60,23 +59,16 @@ function Register({ role }) {
                             <h1 className='login__title'>Sign up developer</h1>
 
                             <div className='login__input__box'>
-                                <input className={err ? 'login__phone__input login__phone__input--danger' : 'login__phone__input'} id='first_name' type="text" name='first_name' required />
-                                <label className={err ? "login__phone_label login__phone_label--danger" : "login__phone_label"} htmlFor="first_name">
-                                    First name
+                                <input className={err ? 'login__phone__input login__phone__input--danger' : 'login__phone__input'} id='full_name' type="text" name='full_name' required />
+                                <label className={err ? "login__phone_label login__phone_label--danger" : "login__phone_label"} htmlFor="full_name">
+                                    Full name
                                 </label>
                             </div>
 
                             <div className='login__input__box'>
-                                <input className={err ? 'login__phone__input login__phone__input--danger' : 'login__phone__input'} id='last_name' type="text" name='last_name' required />
-                                <label className={err ? "login__phone_label login__phone_label--danger" : "login__phone_label"} htmlFor="last_name">
-                                    Last name
-                                </label>
-                            </div>
-
-                            <div className='login__input__box'>
-                                <input className={err ? 'login__phone__input login__phone__input--danger' : 'login__phone__input'} id='email' type="email" name='email' required />
-                                <label className={err ? "login__phone_label login__phone_label--danger" : "login__phone_label"} htmlFor="email">
-                                    Email or ICloud
+                                <input className={err ? 'login__phone__input login__phone__input--danger' : 'login__phone__input'} id='company_name' type="text" name='company_name' required />
+                                <label className={err ? "login__phone_label login__phone_label--danger" : "login__phone_label"} htmlFor="company_name">
+                                    company name
                                 </label>
                             </div>
 
