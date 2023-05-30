@@ -30,20 +30,6 @@ function AddApp() {
         const formData = new FormData();
         const { app_name, app_link, ad_type, photo } = e.target.elements
 
-        for (let option of ad_type.options) {
-            if (option.selected) {
-                if (option.value === 'BN') {
-                    setBN(makeCode(16, option.value))
-                } else if (option.value === 'IN') {
-                    setIN(makeCode(16, option.value))
-                } else if (option.value === 'RD') {
-                    setRD(makeCode(16, option.value))
-                } else if (option.value === 'NB') {
-                    setNB(makeCode(16, option.value))
-                }
-            }
-        }
-
         formData.append("photo", photo.files[0]);
         formData.append("appName", app_name.value.trim());
         formData.append("app_link", app_link.value.trim());
@@ -62,7 +48,7 @@ function AddApp() {
 
             }
         }).then(data => {
-            if(data.status === 200) {
+            if (data.status === 200) {
                 navigate('/developer/apps')
             } else {
                 console.log(data);
@@ -93,7 +79,24 @@ function AddApp() {
                             </div>
 
                             <div className='login__input__box login__input__box--select'>
-                                <select className='login__phone__input login__phone__input--select' name="ad_type" required multiple>
+                                <select className='login__phone__input login__phone__input--select' name="ad_type" required multiple
+                                    onChange={(e) => {
+
+                                        for (let option of e.target.options) {
+                                            if (option.selected) {
+                                                if (option.value === 'BN') {
+                                                    setBN(makeCode(16, option.value))
+                                                } else if (option.value === 'IN') {
+                                                    setIN(makeCode(16, option.value))
+                                                } else if (option.value === 'RD') {
+                                                    setRD(makeCode(16, option.value))
+                                                } else if (option.value === 'NB') {
+                                                    setNB(makeCode(16, option.value))
+                                                }
+                                            }
+                                        }
+                                    }}
+                                >
                                     <option value="BN">Banner</option>
                                     <option value="IN">Inters</option>
                                     <option value="RD">Rewarded</option>
