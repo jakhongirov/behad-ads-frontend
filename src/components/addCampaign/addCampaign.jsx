@@ -2,10 +2,30 @@ import './addCampaign.scss'
 import useToken from '../../Hooks/useToken';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function AddCampaign() {
     const [token, setToken] = useToken();
     const navigate = useNavigate()
+    const [apps, setApps] = useState([])
+
+    useEffect(() => {
+        fetch('https://ads.adstar.uz/api/v1/apps', {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 200) {
+                    setApps(data.data)
+                } else if (data.status === 401) {
+                    setToken(false);
+                }
+            })
+            .catch((e) => console.log(e))
+    }, [])
 
     const HandleAddCampaign = (e) => {
         e.preventDefault();
@@ -29,11 +49,21 @@ function AddCampaign() {
             click_per_user,
             advertisement_type,
             type_of_campaign,
+            apps,
             advertisement_click_link,
             advertisement_media_type,
             advertisement_media,
         } = e.target.elements
         const formData = new FormData();
+
+        let selected = [];
+        for (let option of apps.options) {
+            if (option.selected) {
+                selected.push(Number(option.value));
+            }
+        }
+
+        console.log(selected);
 
         formData.append("photo", advertisement_media.files[0]);
         formData.append("campaign_name", campaign_name.value.trim());
@@ -54,6 +84,7 @@ function AddCampaign() {
         formData.append("click_per_user", click_per_user.value.trim());
         formData.append("advertisement_type", advertisement_type.value.trim());
         formData.append("type_of_campaign", type_of_campaign.value.trim());
+        formData.append("app_id", selected);
         formData.append("action_price", Number(action_price.value.trim()));
         formData.append("advertisement_click_link", advertisement_click_link.value.trim());
         formData.append("advertisement_media_type", advertisement_media_type.value.trim());
@@ -242,6 +273,17 @@ function AddCampaign() {
                                         <option value="view">View</option>
                                         <option value="click">Click</option>
                                         <option value="fullView">Full view</option>
+                                    </select>
+                                </div>
+
+                                <div className='login__input__box login__input__box--select'>
+                                    <select className='login__phone__input login__phone__input--select' name="apps" multiple required>
+                                        <option value="" disabled>Apps</option>
+                                        {
+                                            apps.map((e, i) => (
+                                                <option value={e.app_id} key={i}>{e.app_name}</option>
+                                            ))
+                                        }
                                     </select>
                                 </div>
 

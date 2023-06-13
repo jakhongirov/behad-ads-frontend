@@ -28,7 +28,7 @@ function AddApp() {
     const HandleAddApp = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        const { app_name, app_link, ad_type, photo } = e.target.elements
+        const { app_name, app_link, photo } = e.target.elements
 
         formData.append("photo", photo.files[0]);
         formData.append("appName", app_name.value.trim());
